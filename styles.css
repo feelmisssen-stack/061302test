@@ -1,14 +1,16 @@
 :root {
-    --bg-dark: #0f172a;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --primary: #8b5cf6;
-    --secondary: #3b82f6;
-    --accent: #ec4899;
-    
-    --glass-bg: rgba(30, 41, 59, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --lego-red: #e3000b;
+    --lego-red-shadow: #990007;
+    --lego-blue: #0055bf;
+    --lego-blue-shadow: #00367a;
+    --lego-yellow: #f2cd37;
+    --lego-yellow-shadow: #ba9913;
+    --lego-green: #237841;
+    --lego-green-shadow: #144927;
+    --lego-white: #ffffff;
+    --lego-white-shadow: #cccccc;
+    --lego-black: #111111;
+    --bg-color: #f4f4f4;
 }
 
 * {
@@ -18,117 +20,69 @@
 }
 
 body {
-    font-family: 'Pretendard', 'Outfit', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+    font-family: 'Jua', 'Fredoka', sans-serif;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(#d5d5d5 15%, transparent 16%),
+                      radial-gradient(#d5d5d5 15%, transparent 16%);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    color: var(--lego-black);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* Background Effects */
-.background-effects {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
+/* Colors */
+.color-red { color: var(--lego-red); }
+.color-blue { color: var(--lego-blue); }
+.color-yellow { color: var(--lego-yellow); }
+.color-green { color: var(--lego-green); }
+
+/* Lego Block General Styles */
+.lego-block {
+    border: 4px solid var(--lego-black);
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 4px 6px 0px var(--lego-black);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.5;
-    animation: float 20s infinite alternate;
-}
-
-.glow-1 {
-    top: -10%;
-    left: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-}
-
-.glow-2 {
-    bottom: -10%;
-    right: -10%;
-    width: 40vw;
-    height: 40vw;
-    background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
-    animation-delay: -5s;
-}
-
-@keyframes float {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(10%, 10%) scale(1.2); }
-}
-
-/* Typography & Utilities */
-.text-gradient {
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.glass-panel {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    box-shadow: var(--glass-shadow);
-}
+.lego-white { background-color: var(--lego-white); }
+.lego-red { background-color: var(--lego-red); color: white; }
+.lego-blue { background-color: var(--lego-blue); color: white; }
+.lego-yellow { background-color: var(--lego-yellow); color: var(--lego-black); }
+.lego-green { background-color: var(--lego-green); color: white; }
 
 /* Buttons */
 .btn {
     display: inline-block;
     padding: 12px 28px;
-    border-radius: 50px;
-    font-weight: 600;
+    border-radius: 8px;
+    font-weight: 700;
     text-decoration: none;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    border: 3px solid var(--lego-black);
+    box-shadow: 3px 5px 0px var(--lego-black);
+    transition: all 0.1s ease;
     cursor: pointer;
-    border: none;
-    font-size: 1rem;
+    font-family: 'Jua', 'Fredoka', sans-serif;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+.btn:active {
+    transform: translate(3px, 5px);
+    box-shadow: 0px 0px 0px var(--lego-black);
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
-}
+.btn-red { background-color: var(--lego-red); color: white; }
+.btn-blue { background-color: var(--lego-blue); color: white; }
+.btn-yellow { background-color: var(--lego-yellow); color: var(--lego-black); }
+.btn-white { background-color: var(--lego-white); color: var(--lego-black); }
 
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
+.btn-large { padding: 16px 36px; font-size: 1.3rem; }
+.btn-xl { padding: 20px 48px; font-size: 1.5rem; }
 
 .btn-outline {
-    background: transparent;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 8px 24px;
-}
-
-.btn-outline:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    background: var(--lego-white);
+    color: var(--lego-black);
 }
 
 /* Navigation */
@@ -136,25 +90,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 5%;
+    padding: 16px 5%;
     position: fixed;
-    width: 100%;
-    top: 0;
+    width: 96%;
+    top: 2%;
+    left: 2%;
     z-index: 100;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .logo {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
     letter-spacing: -0.5px;
-}
-
-.logo span {
-    color: var(--primary);
+    text-shadow: 2px 2px 0px var(--lego-white-shadow);
 }
 
 .nav-links {
@@ -164,24 +113,25 @@ body {
 }
 
 .nav-links a {
-    color: var(--text-muted);
+    color: var(--lego-black);
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
 .nav-links a:hover {
-    color: var(--text-main);
+    color: var(--lego-blue);
 }
 
 /* Main Content */
 main {
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -196,77 +146,77 @@ main {
 
 .badge {
     display: inline-block;
-    padding: 6px 16px;
-    background: rgba(139, 92, 246, 0.1);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    border-radius: 50px;
-    color: var(--primary);
-    font-size: 0.875rem;
-    font-weight: 600;
+    padding: 8px 20px;
+    border: 3px solid var(--lego-black);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
     margin-bottom: 1.5rem;
+    box-shadow: 2px 3px 0px var(--lego-black);
 }
 
 .hero h1 {
     font-size: 4rem;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: 1.5rem;
-    font-weight: 800;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
 }
 
 .hero p {
-    font-size: 1.25rem;
-    color: var(--text-muted);
+    font-size: 1.4rem;
     margin-bottom: 2.5rem;
+    font-weight: 400;
+    background-color: var(--lego-white);
+    padding: 16px;
+    border: 3px solid var(--lego-black);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px var(--lego-black);
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
-/* Code Window Animation */
+/* Code Window - Lego Style */
 .hero-visual {
     flex: 1;
-    perspective: 1000px;
 }
 
 .code-window {
-    border-radius: 12px;
+    padding: 0;
     overflow: hidden;
-    transform: rotateY(-5deg) rotateX(5deg);
-    transition: transform 0.5s ease;
-}
-
-.code-window:hover {
-    transform: rotateY(0deg) rotateX(0deg);
 }
 
 .window-header {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 12px 16px;
+    background: var(--lego-yellow);
+    padding: 12px;
     display: flex;
-    gap: 8px;
-    border-bottom: 1px solid var(--glass-border);
+    gap: 12px;
+    border-bottom: 4px solid var(--lego-black);
+    justify-content: center;
 }
 
-.dot {
-    width: 12px;
+.stud {
+    width: 20px;
     height: 12px;
-    border-radius: 50%;
+    background-color: var(--lego-yellow);
+    border: 3px solid var(--lego-black);
+    border-radius: 4px 4px 0 0;
+    margin-top: -24px;
 }
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
 
 .window-body {
     padding: 32px;
     font-family: monospace;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: var(--lego-blue);
     line-height: 1.8;
 }
 
-.prompt { color: #a5d6ff; }
-.ai-response { color: #7ee787; display: inline-block; overflow: hidden; white-space: nowrap; animation: typing 4s steps(40, end) infinite; }
+.prompt { color: #fff; text-shadow: 1px 1px 0 #000; }
+.ai-response { color: var(--lego-yellow); text-shadow: 1px 1px 0 #000; display: inline-block; overflow: hidden; white-space: nowrap; animation: typing 4s steps(40, end) infinite; }
 
 @keyframes typing {
     0%, 20% { width: 0; opacity: 0; }
@@ -276,7 +226,7 @@ main {
 
 /* Features Section */
 .about {
-    padding: 8rem 5%;
+    padding: 6rem 5%;
 }
 
 .section-header {
@@ -285,45 +235,59 @@ main {
 }
 
 .section-header h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
 }
 
 .section-header p {
-    color: var(--text-muted);
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     max-width: 600px;
     margin: 0 auto;
+    background: var(--lego-white);
+    padding: 16px;
+    border: 3px solid var(--lego-black);
+    border-radius: 8px;
+    box-shadow: 3px 3px 0px var(--lego-black);
 }
 
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
+    padding: 20px 0;
 }
 
 .feature-card {
     padding: 2.5rem;
-    transition: transform 0.3s ease, background 0.3s ease;
+    text-align: center;
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
-    background: rgba(40, 50, 70, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 4px 14px 0px var(--lego-black);
 }
 
 .feature-card .icon {
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 1.5rem;
+    background: var(--lego-white);
+    display: inline-block;
+    padding: 15px;
+    border: 3px solid var(--lego-black);
+    border-radius: 50%;
+    box-shadow: 3px 3px 0px var(--lego-black);
 }
 
 .feature-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
+    text-shadow: 1px 1px 0px #000;
 }
 
 .feature-card p {
-    color: var(--text-muted);
+    font-size: 1.2rem;
+    font-family: 'Jua', sans-serif;
 }
 
 /* CTA Section */
@@ -337,39 +301,46 @@ main {
     padding: 5rem 2rem;
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+}
+
+/* Add studs to top of CTA block */
+.cta-content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 10%;
+    width: 80%;
+    height: 16px;
+    background-image: radial-gradient(circle, var(--lego-blue) 40%, transparent 40%);
+    background-size: 40px 16px;
+    background-repeat: repeat-x;
 }
 
 .cta-content h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 0px #000;
 }
 
 .cta-content p {
-    color: var(--text-muted);
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-}
-
-.btn-large {
-    padding: 16px 40px;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 0px #000;
 }
 
 /* Footer */
 footer {
     padding: 2rem 5%;
-    border-top: 1px solid rgba(255,255,255,0.05);
     text-align: center;
+    margin: 2% 2%;
+    width: 96%;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.footer-content p {
-    color: var(--text-muted);
 }
 
 /* Animations */
@@ -390,7 +361,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        padding-top: 120px;
+        padding-top: 80px;
     }
     
     .hero-content {
@@ -406,6 +377,6 @@ footer {
     }
     
     .nav-links {
-        display: none; /* Add mobile menu in real app */
+        display: none;
     }
 }
