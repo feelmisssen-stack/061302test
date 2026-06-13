@@ -3,100 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>바이브코딩(Vibe Coding) - 코딩의 새로운 패러다임</title>
+    <title>VibeCoding — 말하는 대로 만들어지는 코딩</title>
     <meta name="description" content="자연어 프롬프트와 AI를 활용해 코딩하는 새로운 개발 방식, 바이브코딩을 만나보세요.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar lego-block lego-white">
-        <div class="logo">Vibe<span class="color-red">Coding</span></div>
+
+    <!-- ── Primary Nav ── -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">VibeCoding</div>
+
+        <div class="nav-search">
+            <span class="nav-search-icon">🔍</span>
+            <input type="text" id="nav-search-input" placeholder="아이디어, 코딩, 프롬프트를 검색해보세요..." aria-label="검색">
+        </div>
+
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#features">Features</a></li>
-            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#discover">Discover</a></li>
         </ul>
-        <a href="#get-started" class="btn btn-blue">시작하기</a>
+
+        <div class="nav-right">
+            <a href="#" class="btn-login" id="btn-login">로그인</a>
+            <a href="#get-started" class="btn-primary" id="btn-signup">시작하기</a>
+        </div>
     </nav>
 
     <main>
-        <section class="hero">
+
+        <!-- ── Hero ── -->
+        <section class="hero" id="home">
             <div class="hero-content fade-in-up">
-                <div class="badge lego-yellow">Next Generation Development</div>
-                <h1 class="hero-title">말하는 대로 만들어지는<br><span class="color-blue">바이브코딩</span>의 세계</h1>
-                <p>복잡한 문법은 잊으세요. 당신의 아이디어를 자연어로 조립하면 AI가 코드로 실현합니다. 레고 블록을 맞추듯 즐거운 코딩을 시작해보세요.</p>
+                <div class="hero-badge" id="hero-badge">
+                    ✨ Next Generation Development
+                </div>
+                <h1 class="hero-title">
+                    말하는 대로<br>
+                    만들어지는<br>
+                    <span class="accent">바이브코딩</span>
+                </h1>
+                <p class="hero-body">
+                    복잡한 문법은 잊으세요. 당신의 아이디어를 자연어로 전달하면 AI가 코드로 실현합니다. 누구나 쉽게, 빠르게 원하는 것을 만들어보세요.
+                </p>
                 <div class="hero-buttons">
-                    <a href="#get-started" class="btn btn-red btn-large">무료로 체험하기</a>
-                    <a href="#about" class="btn btn-white btn-large">더 알아보기</a>
+                    <a href="#get-started" class="btn-primary btn-primary-lg" id="hero-cta">무료로 체험하기</a>
+                    <a href="#about" class="btn-secondary btn-primary-lg" id="hero-learn">더 알아보기</a>
                 </div>
             </div>
-            <div class="hero-visual fade-in-up" style="transition-delay: 0.2s">
-                <div class="code-window lego-block lego-blue">
-                    <div class="window-header">
-                        <div class="stud"></div>
-                        <div class="stud"></div>
-                        <div class="stud"></div>
-                        <div class="stud"></div>
-                        <div class="stud"></div>
+
+            <!-- Mini Pin Masonry Preview -->
+            <div class="hero-visual fade-in-up" style="transition-delay: 0.2s" id="hero-visual">
+
+                <div class="pin-preview">
+                    <div class="pin-preview-inner pin-c1">
+                        <span class="pin-emoji">💬</span>
+                        <span class="pin-overlay-pill">자연어 프롬프트</span>
                     </div>
-                    <div class="window-body">
-                        <div class="typing-animation">
-                            <span class="prompt">User: 레고 느낌이 나는 랜딩 페이지를 조립해줘.</span><br>
-                            <span class="ai-response">AI: 삐빅! 빨강, 노랑, 파랑 블록들을 모아 조립을 시작합니다...</span>
+                </div>
+
+                <div class="pin-preview">
+                    <div class="pin-preview-inner pin-c2">
+                        <span class="pin-emoji">🚀</span>
+                    </div>
+                </div>
+
+                <div class="pin-preview">
+                    <div class="pin-preview-inner pin-c3">
+                        <span class="pin-emoji">⚡</span>
+                    </div>
+                </div>
+
+                <div class="pin-preview">
+                    <div class="pin-preview-inner pin-c4">
+                        <span class="pin-emoji">🤖</span>
+                        <span class="pin-overlay-pill">AI 페어</span>
+                    </div>
+                </div>
+
+                <div class="pin-preview">
+                    <div class="pin-preview-inner pin-c5">
+                        <span class="pin-emoji">🌍</span>
+                    </div>
+                </div>
+
+                <div class="pin-preview">
+                    <div class="pin-preview-inner pin-c6">
+                        <span class="pin-emoji">✨</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── About / Features Grid ── -->
+        <section id="about" class="about">
+            <div class="section-wrapper">
+                <div class="section-header fade-in-up">
+                    <p class="section-eyebrow">What is VibeCoding?</p>
+                    <h2 class="section-title">아이디어를 코드로,<br>즉시 실현하세요</h2>
+                    <p class="section-body">바이브코딩은 자연어 한 문장으로 소프트웨어를 만들어내는 새로운 개발 패러다임입니다. 전문 지식이 없어도 괜찮습니다.</p>
+                </div>
+
+                <div class="features-grid" id="features">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">💬</div>
+                        <h3>자연어 프롬프트</h3>
+                        <p>전문 지식 없이 일상 언어로 지시하세요. "할 일 목록 앱 만들어줘"처럼 말하면 AI가 코드를 작성합니다.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up" style="transition-delay: 0.08s">
+                        <div class="feature-icon">⚡</div>
+                        <h3>초고속 프로토타이핑</h3>
+                        <p>아이디어에서 실제 동작하는 앱까지 단 몇 분. 기획에서 MVP 완성까지의 시간을 90% 단축하세요.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up" style="transition-delay: 0.16s">
+                        <div class="feature-icon">🤖</div>
+                        <h3>AI 페어 프로그래밍</h3>
+                        <p>당신의 전담 AI 조수가 코드를 제안하고, 오류를 수정하며, 더 나은 구조를 추천해 드립니다.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up" style="transition-delay: 0.24s">
+                        <div class="feature-icon">🌍</div>
+                        <h3>원클릭 배포</h3>
+                        <p>만든 앱을 클릭 한 번으로 전 세계에 공개하세요. 서버 설정, 도메인 연결이 모두 자동으로 완료됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Feature Rows ── -->
+        <section class="feature-row-section">
+            <div class="section-wrapper">
+
+                <!-- Row 1: text left, visual right -->
+                <div class="feature-row fade-in-up">
+                    <div class="feature-row-text">
+                        <h3>대화하듯 코딩하세요</h3>
+                        <p>복잡한 문법이나 라이브러리를 외울 필요 없습니다. 원하는 기능을 자연스럽게 설명하면 AI가 즉시 코드를 생성합니다. 피드백을 주고받으며 더욱 완성도 높은 결과물을 만들어가세요.</p>
+                        <a href="#get-started" class="btn-primary" id="feature-cta-1">지금 시작하기</a>
+                    </div>
+                    <div class="feature-row-visual">
+                        <div class="feature-visual-card">
+                            <div class="visual-chat-wrapper">
+                                <div class="visual-chat-bubble">
+                                    "할 일 목록 앱을 만들어줘. 완료 체크도 되고 삭제도 되게 해줘 🙏"
+                                </div>
+                                <div class="visual-response-bubble">
+                                    ✅ 완료! 로컬스토리지 저장까지 추가했어요. 확인해보세요.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Row 2: visual left, text right -->
+                <div class="feature-row reverse fade-in-up">
+                    <div class="feature-row-text">
+                        <h3>실시간으로 결과를 확인하세요</h3>
+                        <p>코드를 작성하는 동안 결과물이 실시간으로 미리보기에 나타납니다. 수정하고 즉시 확인하는 반복 작업을 통해 완벽한 제품을 빠르게 만들어가세요.</p>
+                        <a href="#get-started" class="btn-secondary btn-primary-lg" id="feature-cta-2">데모 보기</a>
+                    </div>
+                    <div class="feature-row-visual">
+                        <div class="feature-visual-card soft">
+                            <div style="text-align: center;">
+                                <div style="font-size: 4rem; margin-bottom: 16px;">🖥️</div>
+                                <div style="font-size: 14px; font-weight: 600; color: var(--color-ink); margin-bottom: 8px;">실시간 미리보기</div>
+                                <div style="font-size: 12px; color: var(--color-mute);">수정하는 즉시 반영됩니다</div>
+                                <div style="margin-top: 16px; display: flex; gap: 8px; justify-content: center;">
+                                    <span class="btn-pill active">HTML</span>
+                                    <span class="btn-pill">CSS</span>
+                                    <span class="btn-pill">JS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section id="about" class="about">
-            <div class="section-header fade-in-up">
-                <h2>What is <span class="color-red">Vibe Coding?</span></h2>
-                <p>바이브코딩은 마치 레고 블록을 맞추듯, 쉽고 재미있게 소프트웨어를 조립해 나가는 과정입니다.</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card lego-block lego-yellow fade-in-up">
-                    <div class="icon">🧱</div>
-                    <h3>자연어 프롬프트</h3>
-                    <p>전문 지식이 없어도, 레고 조립 설명서처럼 일상 언어로 지시하여 앱을 뚝딱 만들 수 있습니다.</p>
+        <!-- ── Discover (Masonry) ── -->
+        <section id="discover" class="discover-section">
+            <div class="section-wrapper">
+                <div class="section-header fade-in-up">
+                    <p class="section-eyebrow">Discover</p>
+                    <h2 class="section-title">다른 사람들은<br>무엇을 만들고 있을까요?</h2>
+                    <p class="section-body">바이브코딩으로 만든 프로젝트들을 탐색해보세요. 당신의 다음 아이디어가 여기에 있습니다.</p>
                 </div>
-                <div class="feature-card lego-block lego-green fade-in-up" style="transition-delay: 0.1s">
-                    <div class="icon">🚀</div>
-                    <h3>초고속 프로토타이핑</h3>
-                    <p>아이디어에서 실제 작동하는 앱까지 순식간! 블록 몇 개를 연결하는 시간 안에 MVP를 완성하세요.</p>
+
+                <!-- Filter Chips -->
+                <div class="filter-strip fade-in-up" id="filter-strip">
+                    <button class="btn-pill active" data-filter="all" id="filter-all">전체</button>
+                    <button class="btn-pill" data-filter="web" id="filter-web">웹앱</button>
+                    <button class="btn-pill" data-filter="game" id="filter-game">게임</button>
+                    <button class="btn-pill" data-filter="tool" id="filter-tool">도구</button>
+                    <button class="btn-pill" data-filter="design" id="filter-design">디자인</button>
                 </div>
-                <div class="feature-card lego-block lego-red fade-in-up" style="transition-delay: 0.2s">
-                    <div class="icon">🤖</div>
-                    <h3>AI 페어 프로그래밍</h3>
-                    <p>당신의 전담 AI 조수가 항상 곁에 있어, 튼튼하고 멋진 조립 방법을 추천해 드립니다.</p>
-                </div>
-                <div class="feature-card lego-block lego-blue fade-in-up" style="transition-delay: 0.3s">
-                    <div class="icon">🌍</div>
-                    <h3>원클릭 배포</h3>
-                    <p>조립이 끝났나요? 단 한 번의 클릭으로 여러분의 멋진 작품을 전 세계의 친구들과 공유해 보세요.</p>
+
+                <!-- Masonry Grid -->
+                <div class="masonry-grid fade-in-up" id="discover-grid">
+
+                    <div class="masonry-item">
+                        <div class="masonry-img pin-c1" style="padding-top: 120%;">
+                            <span class="pin-emoji">📝</span>
+                        </div>
+                        <div class="masonry-label">
+                            <h4>할 일 관리 앱</h4>
+                            <p>프롬프트 3개로 완성</p>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item">
+                        <div class="masonry-img pin-c3" style="padding-top: 80%;">
+                            <span class="pin-emoji">🎮</span>
+                        </div>
+                        <div class="masonry-label">
+                            <h4>뱀 게임</h4>
+                            <p>5분 만에 제작</p>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item">
+                        <div class="masonry-img pin-c5" style="padding-top: 150%;">
+                            <span class="pin-emoji">🌤️</span>
+                        </div>
+                        <div class="masonry-label">
+                            <h4>날씨 대시보드</h4>
+                            <p>API 연동 포함</p>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item">
+                        <div class="masonry-img pin-c2" style="padding-top: 100%;">
+                            <span class="pin-emoji">🛒</span>
+                        </div>
+                        <div class="masonry-label">
+                            <h4>쇼핑몰 UI</h4>
+                            <p>반응형 디자인</p>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item">
+                        <div class="masonry-img pin-c4" style="padding-top: 130%;">
+                            <span class="pin-emoji">📊</span>
+                        </div>
+                        <div class="masonry-label">
+                            <h4>데이터 시각화</h4>
+                            <p>차트 라이브러리 활용</p>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item">
+                        <div class="masonry-img pin-c6" style="padding-top: 90%;">
+                            <span class="pin-emoji">💬</span>
+                        </div>
+                        <div class="masonry-label">
+                            <h4>채팅 앱</h4>
+                            <p>실시간 WebSocket</p>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item">
+                        <div class="masonry-img pin-c1" style="padding-top: 110%;">
+                            <span class="pin-emoji">🎵</span>
+                        </div>
+                        <div class="masonry-label">
+                            <h4>음악 플레이어</h4>
+                            <p>감성적인 UI 디자인</p>
+                        </div>
+                    </div>
+
+                    <div class="masonry-item">
+                        <div class="masonry-img pin-c3" style="padding-top: 140%;">
+                            <span class="pin-emoji">🗓️</span>
+                        </div>
+                        <div class="masonry-label">
+                            <h4>일정 관리 캘린더</h4>
+                            <p>드래그앤드롭 지원</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
+        <!-- ── CTA Strip (Dark) ── -->
         <section id="get-started" class="cta-section fade-in-up">
-            <div class="cta-content lego-block lego-blue">
-                <h2>코딩 놀이터로 놀러오세요</h2>
-                <p>이제 코드를 한 줄씩 치는 대신, 당신의 상상력을 블록으로 쌓아 올리세요.</p>
-                <a href="#" class="btn btn-yellow btn-xl">바이브코딩 시작하기</a>
+            <div class="cta-inner">
+                <div>
+                    <h2>코딩 놀이터로<br>놀러오세요</h2>
+                    <p class="cta-sub">지금 시작하면 첫 달 무료. 신용카드 없이 바로 체험하세요.</p>
+                </div>
+                <div class="cta-right">
+                    <a href="#" class="btn-primary btn-primary-lg" id="cta-main-btn">VibeCoding 시작하기</a>
+                </div>
             </div>
         </section>
+
     </main>
 
-    <footer class="lego-block lego-white">
-        <div class="footer-content">
-            <div class="logo">Vibe<span class="color-red">Coding</span></div>
-            <p>© 2026 VibeCoding. Build with blocks!</p>
+    <!-- ── Footer ── -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>앱 다운로드</h4>
+                <ul>
+                    <li><a href="#">iOS 앱</a></li>
+                    <li><a href="#">Android 앱</a></li>
+                    <li><a href="#">Chrome 확장</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>빠른 링크</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#discover">Discover</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#get-started">시작하기</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>커뮤니티</h4>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">블로그</a></li>
+                    <li><a href="#">뉴스레터</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>회사 정보</h4>
+                <ul>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">도움말 센터</a></li>
+                    <li><a href="#">채용</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-logo">VibeCoding</div>
+            <p class="footer-copy">© 2026 VibeCoding. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Filter chip interaction
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
